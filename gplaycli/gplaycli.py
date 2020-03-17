@@ -267,7 +267,8 @@ class GPlaycli:
 				else:
 					method = self.api.download
 				data_iter = method(packagename, expansion_files=self.addfiles_enable)
-				success_downloads.append(packagename)
+				success_downloads.append("%s-v.%s.apk" % (detail['docid'], detail['details']['appDetails']['versionString']))
+				print("%s-v.%s.apk" % (detail['docid'], detail['details']['appDetails']['versionString']))
 			except IndexError as exc:
 				logger.error("Error while downloading %s : this package does not exist, "
 							 "try to search it via --search before",
